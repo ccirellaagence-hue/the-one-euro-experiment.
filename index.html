@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="A transparent personal experiment: will strangers around the world voluntarily contribute a euro?">
+<title>The 1€ Experiment</title>
+<style>
+:root{color-scheme:dark;font-family:system-ui,-apple-system,Segoe UI,sans-serif}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 50% 0%,#24305c,#101426 55%,#0b0d18);color:#f6f7ff;min-height:100vh;display:grid;place-items:center;padding:24px}.wrap{max-width:620px;width:100%;text-align:center}.pill{display:inline-block;padding:8px 16px;border:1px solid #626da6;border-radius:30px;color:#cdd4ff;font-size:13px;letter-spacing:.1em}h1{font-size:clamp(40px,9vw,70px);line-height:1.03;margin:24px 0 18px;letter-spacing:-.05em}h1 span{color:#b6a7ff}p{color:#c9cee5;line-height:1.7}.card{background:#ffffff0c;border:1px solid #ffffff25;border-radius:22px;padding:28px;margin-top:28px;box-shadow:0 18px 70px #0004}.amounts{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:24px 0 16px}button{font:inherit;cursor:pointer}.amount{background:#222944;color:white;border:1px solid #556080;border-radius:12px;padding:15px 4px;font-weight:700}.amount[aria-pressed=true]{background:#7868df;border-color:#c2b9ff}.custom{display:none;width:100%;border:1px solid #8991b6;background:#161c34;border-radius:10px;padding:12px;color:white;font:inherit;margin-bottom:15px}.custom.show{display:block}.pay{width:100%;border:0;border-radius:12px;padding:16px;background:#a99af6;color:#14132c;font-weight:800}.pay:disabled{opacity:.65;cursor:not-allowed}.small{font-size:13px;color:#aeb6d2}.notice{background:#ffffff0a;border-radius:12px;padding:14px;margin-top:20px;text-align:left;font-size:13px;color:#cdd2e7}footer{font-size:12px;color:#929bb8;margin-top:28px}@media(max-width:390px){.card{padding:18px}.amounts{gap:6px}.amount{padding:13px 2px}}
+</style>
+</head>
+<body><main class="wrap">
+<div class="pill">A GLOBAL PERSONAL EXPERIMENT 🌍</div>
+<h1>What if <span>€1</span> could change everything?</h1>
+<p>I'm running a simple experiment: how many people around the world would voluntarily contribute a small amount to a complete stranger, just to see what happens?</p>
+<section class="card" aria-labelledby="heading"><h2 id="heading">Choose an amount</h2><p>€1, €2, €5 — or any amount you like. There is no reward or product in return.</p>
+<div class="amounts" role="group" aria-label="Contribution amount">
+<button class="amount" data-value="1" aria-pressed="true">€1</button><button class="amount" data-value="2" aria-pressed="false">€2</button><button class="amount" data-value="5" aria-pressed="false">€5</button><button class="amount" data-value="custom" aria-pressed="false">Other</button>
+</div><input id="custom" class="custom" type="number" min="1" step="0.01" inputmode="decimal" placeholder="Amount in euros" aria-label="Custom amount in euros">
+<button class="pay" disabled>Payments coming soon</button><p class="small">Payments are not active yet. No money can be sent through this page.</p>
+</section>
+<div class="notice"><strong>Transparency matters.</strong><p>This is a personal experiment, not a charity or a nonprofit fundraiser. Contributions, if enabled later, would go to the organizer personally. No tax deduction, goods, services, or financial return are offered. Payment processing and applicable tax obligations will be confirmed before launch.</p></div>
+<footer>The 1€ Experiment · A curiosity-driven project</footer>
+</main><script>
+const buttons=document.querySelectorAll('.amount');const custom=document.getElementById('custom');buttons.forEach(b=>b.addEventListener('click',()=>{buttons.forEach(x=>x.setAttribute('aria-pressed',String(x===b)));custom.classList.toggle('show',b.dataset.value==='custom');if(b.dataset.value==='custom')custom.focus();}));
+</script></body></html>
